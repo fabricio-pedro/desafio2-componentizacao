@@ -3,23 +3,12 @@
 import '../styles/content.scss';
 import { GenreResponseProps } from "./props/GenreResponseProps"
 import { MovieCard } from './MovieCard';
-interface MovieProps {
-  imdbID: string;
-  Title: string;
-  Poster: string;
-  Ratings: Array<{
-    Source: string;
-    Value: string;
-  }>;
-  Runtime: string;
-}
+import { Header } from './Header';
+import { MovieProps } from './props/MovieProps';
 export function Content(props:{selectedGenre:GenreResponseProps,movies:MovieProps[]}) {  
   return(  
    <div className="container">
-   <header>
-    <span className="category">Categoria:<span> {props.selectedGenre.title}</span></span>
-   </header>
-
+   <Header title={props.selectedGenre.title}></Header>
    <main>
     <div className="movies-list">
       {props.movies.map(movie => (
